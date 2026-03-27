@@ -23,6 +23,7 @@ Route::put('/actividades/{id}', [ActividadController::class, 'update']);
 Route::delete('/actividades/{id}', [ActividadController::class, 'destroy']);
 Route::get('/progreso', [ProgresoUsuarioController::class, 'index']);
 Route::post('/login', [AuthController::class, 'login']);
+Route::post('/logout', [AuthController::class, 'logout']);
 Route::get('/preguntas', [PreguntaController::class, 'index']);
 Route::post('/preguntas', [PreguntaController::class, 'store']);
 Route::put('/preguntas/{id}', [PreguntaController::class, 'update']);
