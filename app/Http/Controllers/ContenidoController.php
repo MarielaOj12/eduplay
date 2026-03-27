@@ -63,22 +63,4 @@ class ContenidoController extends Controller
         ]);
     }
 
-    public function destroy($id)
-    {
-        $contenido = Contenido::find($id);
-
-        if (!$contenido) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Contenido no encontrado'
-            ], 404);
-        }
-
-        $contenido->delete();
-
-        return response()->json([
-            'success' => true,
-            'message' => 'Contenido eliminado correctamente'
-        ]);
-    }
 }
