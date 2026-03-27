@@ -30,3 +30,6 @@ Route::delete('/preguntas/{id}', [PreguntaController::class, 'destroy']);
 Route::get('/actividades/{id}/preguntas', [ResolverActividadController::class, 'obtenerPreguntas']);
 Route::post('/resolver-actividad', [ResolverActividadController::class, 'resolver']);
 Route::get('/progreso/usuario/{id}', [ProgresoUsuarioController::class, 'mostrarPorUsuario']);
+
+Route::get('/saludo', [UsuarioController::class, 'saludo']);
+Route::get('/usuarios-total', [UsuarioController::class, 'contarUsuarios']);

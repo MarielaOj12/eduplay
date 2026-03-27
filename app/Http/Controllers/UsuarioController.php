@@ -76,4 +76,19 @@ class UsuarioController extends Controller
             'message' => 'Usuario eliminado correctamente'
         ]);
     }
+
+    public function saludo()
+    {
+        return response()->json([
+            'success' => true,
+            'message' => 'Endpoint de prueba funcionando correctamente'
+        ]);
+    }
+    public function contarUsuarios()
+    {
+    return response()->json([
+        'success' => true,
+        'total_usuarios' => Usuario::count()
+    ]);
+    }
 }
