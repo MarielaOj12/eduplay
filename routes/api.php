@@ -32,3 +32,4 @@ Route::post('/resolver-actividad', [ResolverActividadController::class, 'resolve
 Route::get('/progreso/usuario/{id}', [ProgresoUsuarioController::class, 'mostrarPorUsuario']);
 
 Route::get('/saludo', [UsuarioController::class, 'saludo']);
+Route::get('/usuarios-total', [UsuarioController::class, 'contarUsuarios']);

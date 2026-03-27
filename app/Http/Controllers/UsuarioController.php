@@ -84,4 +84,11 @@ class UsuarioController extends Controller
             'message' => 'Endpoint de prueba funcionando correctamente'
         ]);
     }
+    public function contarUsuarios()
+    {
+    return response()->json([
+        'success' => true,
+        'total_usuarios' => Usuario::count()
+    ]);
+    }
 }
