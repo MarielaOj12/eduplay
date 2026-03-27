@@ -11,8 +11,7 @@ class ActividadController extends Controller
     {
         return response()->json(Actividad::all());
     }
-
-    public function store(Request $request)
+        public function store(Request $request)
     {
         $actividad = Actividad::create([
             'titulo' => $request->titulo,
@@ -28,7 +27,7 @@ class ActividadController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'Actividad creada correctamente',
+            'message' => 'Actividad creada',
             'actividad' => $actividad
         ]);
     }
@@ -58,7 +57,7 @@ class ActividadController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'Actividad actualizada correctamente',
+            'message' => 'Actividad actualizada',
             'actividad' => $actividad
         ]);
     }
@@ -78,7 +77,8 @@ class ActividadController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'Actividad eliminada correctamente'
+            'message' => 'Actividad eliminada'
         ]);
     }
+
 }
