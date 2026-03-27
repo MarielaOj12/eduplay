@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Usuario;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -34,6 +35,34 @@ class AuthController extends Controller
             'message' => 'Login correcto',
             'usuario' => $usuario,
             'nivel' => $nivel
+        ]);
+    }
+
+    public function logout(Request $request)
+    {
+        // If using token-based auth (Sanctum/Passport) revoke current access token
+        if ($request->user() && method_exists($request->user(), 'currentAccessToken')) {
+            $token = $request->user()->currentAccessToken();
+            if ($token) {
+                $token->delete();
+            }
+        }
+
+        // For session-based auth, log out and invalidate session
+        try {
+            Auth::logout();
+        } catch (\Throwable $e) {
+            // ignore if guard not configured for sessions
+        }
+
+        if ($request->hasSession()) {
+            $request->session()->invalidate();
+            $request->session()->regenerateToken();
+        }
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Sesión cerrada'
         ]);
     }
 }
