@@ -76,4 +76,12 @@ class UsuarioController extends Controller
             'message' => 'Usuario eliminado correctamente'
         ]);
     }
+
+    public function saludo()
+    {
+        return response()->json([
+            'success' => true,
+            'message' => 'Endpoint de prueba funcionando correctamente'
+        ]);
+    }
 }
